@@ -1,0 +1,72 @@
+# Uso de la instrucción open() para abrir archivos
+
+f = open("archivo_nuevo.txt", "x")
+
+******************************************************************
+
+# Uso de la instrucción open() para abrir y escribir en archivos
+
+archivo = open("archivo_nuevo.txt", "w")
+
+archivo.write('Saludos\n')
+archivo.write('Acabas de agregar contenido a tu nuevo archivo\n')
+archivo.write('Una línea nueva')
+
+# Esta instrucción cierra el archivo
+archivo.close()
+
+*******************************************************************
+
+archivo = open("archivo_nuevo.txt", "r")
+
+# Imprime el archivo una línea a la vez
+print(archivo.readline()) #Saludos
+
+# Imprime el archivo en líneas separadas como una lista
+print(archivo.readlines()) #['Saludos\n', 'Acabas de agregar contenido a tu nuevo archivo\n', 'Una línea nueva']
+
+# Esta instrucción cierra el archivo
+archivo.close()
+
+********************************************************************
+
+# Anexar información al final del archivo
+
+archivo = open("archivo_nuevo.txt", "a")
+
+# Nuevo contenido a agregar
+nuevo_texto = ['\nOtra línea nueva','\nUna penúltima línea','\nOtra línea al final']
+
+# Se agrega con ayuda de writelines
+archivo.writelines(nuevo_texto)
+
+# Esta instrucción cierra el archivo
+archivo.close()
+
+*********************************************************************
+# Manejo de excepciones, en este caso: Archivo no encontrado
+try:
+    f = open("archivo_nuevo.txt")
+except FileNotFoundError:
+    print("El archivo no existe.")
+
+*********************************************************************
+
+# Escritura en formato binario
+import pickle
+
+# Objeto a serializar
+datos = {"nombre": "Fernando", "edad": 18, "correo": "fsanudo@hotmail.com"}
+
+# Abrir el archivo en modo escritura binaria
+with open("info.bin", "wb") as archivo:
+    # Escribir el objeto serializado en el archivo
+    pickle.dump(datos, archivo)
+
+https://www.geeksforgeeks.org/python/context-manager-in-python/
+https://www.w3schools.com/python/python_file_remove.asp
+https://www.geeksforgeeks.org/python/read-a-file-line-by-line-in-python/
+https://www.geeksforgeeks.org/python/close-a-file-in-python/
+https://www.luisllamas.es/with-statements-python/
+
+https://www.geeksforgeeks.org/python/read-json-file-using-python/

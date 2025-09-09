@@ -1,0 +1,4 @@
+"Código","Producto","Cantidad (kg)","Peso Total (kg)","Camión","Chofer","Origen","Destino","Escalas","Fecha Envío Agendada","Hora Envío Agendada","Fecha Envío Salida","Hora Envío Salida","Fecha Recepción Estimada","Hora Recepción Estimada","Fecha Recepción Real","Hora Recepción Real","Estado","Completado Por","Fotos"
+"ENV003","Fresa Fresa","584","545","CAM001","Leonel Messi","Almacén Seco","Las fresas de Cecy","","2025-08-28","06:40","","","2025-08-30","23:40","","","En Preparación","","1"
+"ENV002","Fresa Fresa","500","500","CAM001","Leonel Messi","Almacén Seco","Las fresas de Cecy","","","","","","2025-08-29","09:00","","","En Preparación","","0"
+"ENV001","","0","0","","","","","","","","","","","","2025-08-26","17:46","Entregado","","0"
