@@ -33,6 +33,10 @@ def borrar_contacto():
     else:
         print("Contacto no encontrado.")
 
+def mostrar_contactos():
+    for contacto in agenda:
+        print(f"Nombre: {contacto} Telefono: {agenda[contacto]}")
+
 def guardar_csv():
     try:
         with open("agenda.csv", "w", newline="", encoding="utf-8") as f:
@@ -86,26 +90,28 @@ def menu():
     opciones = {
         "1": agregar_contacto,
         "2": editar_contacto,
-        "3": borrar_contacto,
-        "4": guardar_csv,
-        "5": cargar_csv,
-        "6": guardar_serializado,
-        "7": cargar_serializado
+        "3": mostrar_contactos,
+        "4": borrar_contacto,
+        "5": guardar_csv,
+        "6": cargar_csv,
+        "7": guardar_serializado,
+        "8": cargar_serializado
     }
     
     while True:
         print("""
         1. Agregar nuevo contacto
         2. Editar contacto
-        3. Borrar contacto
-        4. Guardar como archivo CSV
-        5. Cargar archivo CSV
-        6. Guardar como objeto serializado
-        7. Cargar como archivo serializado
-        8. Salir
+        3. Mostrar contacto
+        4. Borrar contacto
+        5. Guardar como archivo CSV
+        6. Cargar archivo CSV
+        7. Guardar como objeto serializado
+        8. Cargar como archivo serializado
+        9. Salir
         """)
         opcion = input("Seleccione una opción: ")
-        if opcion == "8":
+        if opcion == "9":
             break
         elif opcion in opciones:
             opciones[opcion]()
