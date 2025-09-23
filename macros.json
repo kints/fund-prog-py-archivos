@@ -1,0 +1,59 @@
+[
+  {
+    "name": "Area cuadrado",
+    "variables": {
+      "lado": 5.0
+    },
+    "constants": {},
+    "operations": [
+      {
+        "op_type": "*",
+        "op1": "lado",
+        "op2": "lado"
+      }
+    ]
+  },
+  {
+    "name": "area triangulo",
+    "variables": {
+      "base": 5.0,
+      "altura": 2.0
+    },
+    "constants": {
+      "entre_dos": 2.0
+    },
+    "operations": [
+      {
+        "op_type": "*",
+        "op1": "base",
+        "op2": "altura"
+      },
+      {
+        "op_type": "/",
+        "op1": "temp_1",
+        "op2": "entre_dos"
+      }
+    ]
+  },
+  {
+    "name": "area circulo",
+    "variables": {
+      "radio": 1.0
+    },
+    "constants": {
+      "pi": 3.1416
+    },
+    "operations": [
+      {
+        "op_type": "*",
+        "op1": "radio",
+        "op2": "radio"
+      },
+      {
+        "op_type": "*",
+        "op1": "pi",
+        "op2": "temp_1"
+      }
+    ]
+  }
+]
