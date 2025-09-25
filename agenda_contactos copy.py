@@ -1,11 +1,7 @@
 import csv
-import threading
+import sys
+import select
 import pickle
-def get_input():
-        global entrada_usuario
-        entrada_usuario = input("ingresa opción")
-
-
 # Agenda inicial con 3 contactos de ejemplo
 agenda = {
     "Juan": "5551234567",
@@ -92,7 +88,6 @@ def cargar_serializado():
 
 # Menú principal
 def menu():
-    global entrada_usuario
     opciones = {
         "1": agregar_contacto,
         "2": editar_contacto,
@@ -117,26 +112,24 @@ def menu():
         8. Cargar como archivo serializado
         9. Salir
         """)
-        hilo = threading.Thread(target=get_input)
-        hilo.daemon = True
-        hilo.start()
-        hilo.join(10)
-        if hilo.is_alive():
-            print("\n¡Tiempo agotado!")
+        rlist, _, _ = select.select([sys.stdin],[],[],15)
+        
+        if rlist:
+            entrada_usuario = sys.stdin.readline().strip()
             # Pide al usuario que decida si quiere continuar
-            continuar = input("¿Quieres continuar? (s/n): ").lower()
-            if continuar == 's':
-                print("Continuando el menú...\n")
-            else:
-                print("Saliendo del programa...")
-                break # Sale del bucle infinito
-        else:
             if entrada_usuario == "9":
                 break
             elif entrada_usuario in opciones:
                 opciones[entrada_usuario]()
             else:
                 print("Opción no válida.")
+        else:
+            continuar = input("¿Quieres continuar? (s/n): ").lower()
+            if continuar == 's':
+                print("Continuando el menú...\n")
+            else:
+                print("Saliendo del programa...")
+                exit() # Sale del bucle infinito
 
 if __name__ == "__main__":
     menu()
